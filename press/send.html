@@ -1,7 +1,0 @@
-<!doctype html><meta charset="utf-8"><title>Sending…</title>
-<script>
-// Hands App Store screenshots to the App Store Connect page embedding this one (removed after use).
-const files = (new URLSearchParams(location.search).get('f') || '').split(',').filter(Boolean);
-Promise.all(files.map(f => fetch(f, {cache: 'no-store'}).then(r => r.blob()).then(b => ({name: f, blob: b}))))
-  .then(list => (window.parent !== window ? window.parent : window.opener).postMessage({mizwalaShots: list}, 'https://appstoreconnect.apple.com'));
-</script>
